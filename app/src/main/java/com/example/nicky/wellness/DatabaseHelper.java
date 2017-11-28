@@ -54,13 +54,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP IF TABLE EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
     /**
      * Function to add data to the db table
-     * ContentValues are based on the
+     * ContentValues are based on the input form the user.
      * @param item
      * @param item2
      * @return Boolean
@@ -85,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Returns all the data from database
+     * Returns all the data from DB
      * @return
      */
     public Cursor getData(){
