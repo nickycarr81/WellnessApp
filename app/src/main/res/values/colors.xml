@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#673ab7</color>
+    <color name="colorPrimaryDark">#673ab7</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorContact">#ff4081</color>
+    <color name="colorContactDark">#ff4081</color>
+    <color name="colorDashboard">#3d5afe</color>
+    <color name="colorDashboardDark">#3d5afe</color>
+    <color name="colorAssessment">#00c853</color>
+    <color name="colorAssessmentDark">#00c853</color>
+    <color name="colorLocation">#ff9100</color>
+    <color name="colorLocationDark">#ff9100</color>
+</resources>
+    

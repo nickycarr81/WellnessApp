@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:background="@color/colorContact"
+                android:onClick="viewResourcePage"
+                android:text="1"
+                app:srcCompat="@drawable/ic_face_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:background="@color/colorDashboard"
+                android:onClick="viewDashPage"
+                android:text="2"
+                app:srcCompat="@drawable/ic_dashboard_black_24dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:background="@color/colorAssessment"
+                android:onClick="viewAssessPage"
+                android:text="4"
+                app:srcCompat="@drawable/ic_assessment_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:background="@color/colorLocation"
+                android:onClick="viewLocationPage"
+                android:text="3"
+                app:srcCompat="@drawable/ic_place_black_24dp" />
+
+
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout >

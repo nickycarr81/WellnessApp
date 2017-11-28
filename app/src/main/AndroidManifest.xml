@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.nicky.wellness">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".memberdetails.UserDetails"
+            android:label="@string/title_activity_user_details"
+            android:parentActivityName=".memberdetails.ListData"
+            android:theme="@style/UserTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+        <activity
+            android:name=".memberdetails.ListData"
+            android:label="@string/title_activity_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/UserTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+        <activity
+            android:name=".memberdetails.EditData"
+            android:label="@string/title_activity_add_remove"
+            android:parentActivityName=".memberdetails.ListData"
+            android:theme="@style/UserTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+        <activity
+            android:name=".dashboard.DashBoard"
+            android:label="@string/title_activity_dashboard"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/DashTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+        <activity
+            android:name=".location.Location"
+            android:label="@string/title_activity_location"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/LocationTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+        <activity
+            android:name=".assessment.Assessment"
+            android:label="@string/title_activity_assessment"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AssessTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
+
+
+    </application>
+
+</manifest>

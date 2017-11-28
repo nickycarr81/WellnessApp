@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Home screen theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- User screen theme. -->
+    <style name="UserTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorContact</item>
+        <item name="colorPrimaryDark">@color/colorContact</item>
+        <item name="colorAccent">@color/colorContact</item>
+    </style>
+
+    <!-- Dashboard screen theme. -->
+    <style name="DashTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorDashboard</item>
+        <item name="colorPrimaryDark">@color/colorDashboard</item>
+        <item name="colorAccent">@color/colorDashboard</item>
+    </style>
+
+    <!-- Location screen theme. -->
+    <style name="LocationTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorLocation</item>
+        <item name="colorPrimaryDark">@color/colorLocation</item>
+        <item name="colorAccent">@color/colorLocation</item>
+    </style>
+
+    <!-- Assessment screen theme. -->
+    <style name="AssessTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorAssessment</item>
+        <item name="colorPrimaryDark">@color/colorAssessment</item>
+        <item name="colorAccent">@color/colorAssessment</item>
+    </style>
+
+
+</resources>
