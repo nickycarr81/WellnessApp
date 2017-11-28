@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * DB onCreate Function called when activity loads
      * @param db
-     * String createTable passed generate the DB table Member
+     * String createTable passed generate the DB table Member.
      **/
     @Override
     public void onCreate(SQLiteDatabase db) {
