@@ -61,9 +61,15 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
                         == PackageManager.PERMISSION_GRANTED){
                     mLocationPermissionGranted = true;
                 }else{
-                    ActivityCompat.requestPermissions(this, permissions,LOCATION_PERMISSION_REQUEST_CODE);
+                    ActivityCompat.requestPermissions(this,
+                            permissions,
+                            LOCATION_PERMISSION_REQUEST_CODE);
                 }
 
+            }else{
+                ActivityCompat.requestPermissions(this,
+                        permissions,
+                        LOCATION_PERMISSION_REQUEST_CODE);
             }
 
         }
