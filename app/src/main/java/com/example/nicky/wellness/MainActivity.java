@@ -10,6 +10,13 @@ import com.example.nicky.wellness.dashboard.DashBoard;
 import com.example.nicky.wellness.location.Location;
 import com.example.nicky.wellness.memberdetails.ListData;
 
+/**
+ * Created by Nicky Carr on 10/11/2017.
+ * This is the main class for the app homepage.
+ * This allows navigation to different activities
+ * uisnf image buttons and intents.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,16 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-
-
-
-
-
-
-
-
-
 
 
     /** Called when the user taps the view resource button*/

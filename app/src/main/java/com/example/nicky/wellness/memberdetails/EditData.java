@@ -13,47 +13,50 @@ import com.example.nicky.wellness.DatabaseHelper;
 import com.example.nicky.wellness.R;
 
 /**
- * Created by User on 2/28/2017.
+ * Created by Nicky Carr on 10/11/2017.
+ * This is the EditData class.
+ * This will allow members details to be displayed
+ * and updated or deleted.
  */
-
 public class EditData extends AppCompatActivity {
 
-    private static final String TAG = "EditDataActivity";
+    private static final String TAG = "EditDataActivity";                           // Tag name for the class
 
-    private Button btnSave,btnDelete;
-    private EditText editable_item;
-    private EditText editable_item2;
+    private Button btnSave,btnDelete;                                               // Buttons to amend and delete members
+    private EditText editable_item, editable_item2;                                 // Text fields to display and update data
+    DatabaseHelper mDatabaseHelper;                                                 // DB helper class
 
-    DatabaseHelper mDatabaseHelper;
-
-    private String selectedName;
-    private String selectedMobile;
-    private int selectedID;
+    private String selectedName;                                                    // String name
+    private String selectedMobile;                                                  // String mobile
+    private int selectedID;                                                         // Int ID
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_data);
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
-        editable_item = (EditText) findViewById(R.id.editable_item);
-        editable_item2 = (EditText) findViewById(R.id.editable_item2);
+
+        btnSave = (Button) findViewById(R.id.btnSave);                              // find button id and assign
+        btnDelete = (Button) findViewById(R.id.btnDelete);                          // find button id and assign
+        editable_item = (EditText) findViewById(R.id.editable_item);                // find text id and assign
+        editable_item2 = (EditText) findViewById(R.id.editable_item2);              // find text id and assign
         mDatabaseHelper = new DatabaseHelper(this);
 
-        //get the intent extra from the ListDataActivity
-        Intent receivedIntent = getIntent();
 
-        //now get the itemID we passed as an extra
-        selectedID = receivedIntent.getIntExtra("id",-1); //NOTE: -1 is just the default value
-
-        //now get the name we passed as an extra
-        selectedName = receivedIntent.getStringExtra("name");
+        Intent receivedIntent = getIntent();                                        // Get the intent extra from the ListDataActivity
+        selectedID = receivedIntent.getIntExtra("id",-1);                           // Get the itemID passed as an extra
+        selectedName = receivedIntent.getStringExtra("name");                       // Get the name passed as an extra
         selectedMobile = receivedIntent.getStringExtra("mobile");
+        editable_item.setText(selectedName);                                        // Set the text to show the current selected name
+        editable_item2.setText(selectedMobile);                                     // Set the text to show the current selected names mobile
 
-        //set the text to show the current selected name
-        editable_item.setText(selectedName);
-        editable_item2.setText(selectedMobile);
 
+        /**
+         * btnSave onclick listener function.
+         * This function updates the members details
+         * by calling the updateName() function and
+         * start the list activity. A toast message
+         * is also displayed if nothing entered.
+         */
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,13 @@ public class EditData extends AppCompatActivity {
             }
         });
 
+        /**
+         * btnDelete onclick listener function.
+         * This function deletes the members details
+         * by calling the deleteName() function and
+         * start the list activity. A toast message
+         * is also displayed if nothing entered.
+         */
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +93,8 @@ public class EditData extends AppCompatActivity {
     }
 
     /**
-     * customizable toast
+     * This is a toast function which receives
+     * a string parameter to display
      * @param message
      */
     private void toastMessage(String message){

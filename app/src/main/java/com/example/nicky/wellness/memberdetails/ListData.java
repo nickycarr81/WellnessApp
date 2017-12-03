@@ -19,61 +19,66 @@ import com.example.nicky.wellness.R;
 import java.util.ArrayList;
 
 /**
- * Created by Nicky November 2017.
+ * Created by Nicky Carr on 10/11/2017.
+ * This is the ListData class.
+ * This will allow the display of the members in a list
+ * format.
  */
 
 public class ListData extends AppCompatActivity {
 
-    private static final String TAG = "ListData";
-
-    DatabaseHelper mDatabaseHelper;
-
-    private ListView mListView;
+    private static final String TAG = "ListData";                       // Tag name for the class
+    DatabaseHelper mDatabaseHelper;                                     // SQLite db object
+    private ListView mListView;                                         // a List to view member details
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
-        mListView = (ListView) findViewById(R.id.listView);
-        mDatabaseHelper = new DatabaseHelper(this);
 
-        populateListView();
+
+        mListView = (ListView) findViewById(R.id.listView);             // find list id and assign
+        mDatabaseHelper = new DatabaseHelper(this);                     // create new db helper object
+        populateListView();                                             // onCreate method  - Calls the populateListView()
     }
 
-    private void populateListView() {
-        Log.d(TAG, "populateListView: Displaying data in the ListView.");
-        //get the data and append to a list
-        final Cursor data = mDatabaseHelper.getData();
-        final ArrayList<String> listData = new ArrayList<>();
-        while(data.moveToNext()){
-            //get the value from the database in column 1
-            //then add it to the ArrayList
-            Log.d(TAG,data.getString(2));
-            listData.add(data.getString(1)); //+ "\n" + data.getString(2))  ;
-        }
-        //create the list adapter and set the adapter
-        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
-        mListView.setAdapter(adapter);
+    /**
+     * This function retrieves the data from the db
+     * and attaches it to the list. An array list is then created
+     * and the data is added to the arraylist.
+     */
 
-        //set an onItemClickListener to the ListView
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void populateListView() {
+        // This log prints to the console so you can check the right values are being passed
+        Log.d(TAG, "populateListView: Displaying data in the ListView.");
+
+        final Cursor data = mDatabaseHelper.getData();                       // DM class function getData is called and assigns to a cursor
+        final ArrayList<String> listData = new ArrayList<>();                // New ArrayList is created
+        while(data.moveToNext()){                                            // Get the value from the table in column 1
+            //Log.d(TAG,data.getString(2));                                    // Used to ensure mobile number is there in console.
+            listData.add(data.getString(1)); //+ "\n" + data.getString(2));  // Add it to the ArrayList
+        }
+
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);      // Creates the list adapter
+        mListView.setAdapter(adapter);                                                                      // Sets the adapter
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {                            // Set an onItemClickListener to the ListView
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String name = adapterView.getItemAtPosition(i).toString();
-                //String mobile = listData.get(data.getString(i));
-                Log.d(TAG, "onItemClick: You Clicked on " + name);
 
-                Cursor data = mDatabaseHelper.getItemID(name); //get the id associated with that name
+                Cursor data = mDatabaseHelper.getItemID(name);                                               // Get the id associated with that name
                 int itemID = -1;
                 while(data.moveToNext()){
                     itemID = data.getInt(0);
                 }
                 if(itemID > -1){
-                    Log.d(TAG, "onItemClick: The ID is: " + itemID);
+                   // Log.d(TAG, "onItemClick: The ID is: " + itemID);
+                    //String mobile = data.getString(2);
                     Intent editScreenIntent = new Intent(ListData.this, EditData.class);
                     editScreenIntent.putExtra("id",itemID);
                     editScreenIntent.putExtra("name",name);
-                    //editScreenIntent.putExtra("name",mobile);
+                    //editScreenIntent.putExtra("mobile",mobile);
                     startActivity(editScreenIntent);
                     //finish();
                 }
@@ -85,14 +90,17 @@ public class ListData extends AppCompatActivity {
     }
 
     /**
-     * customizable toast
+     * This is a toast function which receives
+     * a string parameter to display
      * @param message
      */
     private void toastMessage(String message){
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 
-    /** Called when the user taps the add member button*/
+    /**
+     *  Called when the user taps the add member button
+     */
     public void addUserNavigation(View view){
         Intent intent = new Intent(this, UserDetails.class);
         startActivity(intent);

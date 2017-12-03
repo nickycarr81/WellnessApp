@@ -28,7 +28,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL2 = "name";                              // Column 2 name of table - Team Member name
     private static final String COL3 = "mobile";                            // Column 3 name of table - Team Member mobile number
 
-    public DatabaseHelper(Context context) {                                // Constructor for the class
+    /**
+     * Constructor for the helper class
+     *
+     * @param context
+     */
+
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -60,7 +66,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function to add data to the db table
-     * ContentValues are based on the input form the user.
+     * ContentValues are based on the input form the user
+     * and passed as a string parameter.
      * @param item
      * @param item2
      * @return Boolean
@@ -72,11 +79,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL2, item);
         contentValues.put(COL3, item2);
 
+        // This log prints to the console so you can check the right values are being passed
+        // Example of this is the string items being added to the db table
         Log.d(TAG, "addData: Adding " + item + item2 + " to " + TABLE_NAME);
 
        long result = db.insert(TABLE_NAME, null, contentValues);
 
-        //if date as inserted incorrectly it will return -1
+        //The db insert function will return -1 if it fails.
         if (result == -1) {
             return false;
         } else {
@@ -85,8 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Returns all the data from DB
-     * @return
+     * Function to return all data from the specific table
+     * @return data
      */
     public Cursor getData(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -97,9 +106,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
-     * Returns only the ID that matches the name passed in
+     * Function to return only the ID that matches the name passed in
      * @param name
-     * @return
+     * @return data
      */
     public Cursor getItemID(String name){
         SQLiteDatabase db = this.getWritableDatabase();
