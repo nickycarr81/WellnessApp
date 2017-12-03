@@ -6,4 +6,5 @@
     <string name="title_activity_assessment">Assessment</string>
     <string name="title_activity_add_remove">Add or View</string>
     <string name="title_activity_list">List of Names</string>
+    <string name="google_maps_API_key">AIzaSyALin4wNp25ml2d-4014XsrfQQ-PsgcSl0</string>
 </resources>
