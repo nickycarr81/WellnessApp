@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.example.nicky.wellness"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -26,8 +26,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:26.+'
-    // Google Play Services - Nicky Added 03/12/2017
-    compile 'com.google.android.gms:play-services-maps:11.6.0'
     testCompile 'junit:junit:4.12'
+
+    //Google play services
+    compile 'com.google.android.gms:play-services:11.4.0'
 }

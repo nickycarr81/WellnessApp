@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nicky.wellness">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +16,11 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyALin4wNp25ml2d-4014XsrfQQ-PsgcSl0"/>
-
+            android:value="AIzaSyALin4wNp25ml2d-4014XsrfQQ-PsgcSl0" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -65,7 +65,7 @@
                 android:value="com.example.nicky.wellness.MainActivity" />
         </activity>
         <activity
-            android:name=".location.Location"
+            android:name=".location.LocationMap"
             android:label="@string/title_activity_location"
             android:parentActivityName=".MainActivity"
             android:theme="@style/LocationTheme">
@@ -82,8 +82,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nicky.wellness.MainActivity" />
         </activity>
-
-
     </application>
 
 </manifest>

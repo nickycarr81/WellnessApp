@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.nicky.wellness.assessment.Assessment;
 import com.example.nicky.wellness.dashboard.DashBoard;
-import com.example.nicky.wellness.location.Location;
+import com.example.nicky.wellness.location.LocationMap;
 import com.example.nicky.wellness.memberdetails.ListData;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Location.class);
+                Intent intent = new Intent(MainActivity.this, LocationMap.class);
                 startActivity(intent);
 
             }
