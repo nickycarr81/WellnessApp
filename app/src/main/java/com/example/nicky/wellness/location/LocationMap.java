@@ -1,15 +1,15 @@
 package com.example.nicky.wellness.location;
 
-
+import android.*;
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.location.Location;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -34,7 +34,16 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         if(mLocationPermissionGranted){
-            getDeviceLocation();
+           getDeviceLocation();
+
+           if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                   != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                   Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+               return;
+
+           }
+           mMap.setMyLocationEnabled(true);
+           mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         }
     }
@@ -63,13 +72,14 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
         try{
             if(mLocationPermissionGranted){
 
-                Task location = mFusedLocationProviderClient.getLastLocation();
+                final Task location = mFusedLocationProviderClient.getLastLocation();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
                         if(task.isSuccessful()){
                             Log.d(TAG,  "onComplete: found location ");
                             Location currentLocation = (Location) task.getResult();
+
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
                                     DEFAULT_ZOOM);
 
@@ -94,10 +104,6 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
         Log.d(TAG, "moveCamera: moving the camera to: Lat: " + latLng.latitude + ", lng: " + latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
-
-
-
-
 
 
     private void initMap() {

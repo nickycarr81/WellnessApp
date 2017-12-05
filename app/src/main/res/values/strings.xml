@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Wellness and Performance</string>
-    <string name="title_activity_user_details">User Details</string>
+    <string name="app_name">Balance</string>
+    <string name="title_activity_user_details">Team Member Details</string>
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_activity_location">Location</string>
     <string name="title_activity_assessment">Assessment</string>
     <string name="title_activity_add_remove">Add or View</string>
-    <string name="title_activity_list">List of Names</string>
+    <string name="title_activity_list">List of Team Members</string>
     <string name="google_maps_API_key">AIzaSyALin4wNp25ml2d-4014XsrfQQ-PsgcSl0</string>
 </resources>

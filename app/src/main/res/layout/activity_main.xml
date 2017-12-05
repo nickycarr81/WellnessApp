@@ -17,6 +17,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
+                android:tooltipText="Team Member Details"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:background="@color/colorContact"
@@ -26,6 +27,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton2"
+                android:tooltipText="Dashboard"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:background="@color/colorDashboard"
@@ -41,6 +43,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton4"
+                android:tooltipText="Assessment"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:background="@color/colorAssessment"
@@ -50,6 +53,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton3"
+                android:tooltipText="Location Details"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:background="@color/colorLocation"
