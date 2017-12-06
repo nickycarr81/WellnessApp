@@ -82,6 +82,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nicky.wellness.MainActivity" />
         </activity>
+        <activity
+            android:name=".IntervalTrainer"
+            android:label="@string/title_activity_trainer"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/DashTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nicky.wellness.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

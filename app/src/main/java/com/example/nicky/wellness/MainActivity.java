@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the dashboard button*/
     public void viewDashPage(View view){
-        Intent intent = new Intent(this, DashBoard.class);
+        Intent intent = new Intent(this, IntervalTrainer.class);
         startActivity(intent);
     }
 

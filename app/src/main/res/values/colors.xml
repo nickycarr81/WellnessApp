@@ -11,5 +11,7 @@
     <color name="colorAssessmentDark">#00c853</color>
     <color name="colorLocation">#ff9100</color>
     <color name="colorLocationDark">#ff9100</color>
+    <color name="WorkColour">#00FF00</color>
+    <color name="RestColour">#FFC200</color>
 </resources>
     
