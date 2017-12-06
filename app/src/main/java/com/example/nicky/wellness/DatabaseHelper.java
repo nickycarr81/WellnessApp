@@ -20,13 +20,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Database Values
     private static final String DATABASE_NAME = "teamMember.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // Team Member Table Details
     private static final String TABLE_NAME = "member";                      // DB table name
     private static final String COL1 = "ID";                                // Column 1 name of table - Primary key
     private static final String COL2 = "name";                              // Column 2 name of table - Team Member name
     private static final String COL3 = "mobile";                            // Column 3 name of table - Team Member mobile number
+    private static final String COL4 = "email";                             // Column 4 name of table - Team Member email number
 
     /**
      * Constructor for the helper class
@@ -46,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      **/
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, MOBILE TEXT)";
+        String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, MOBILE TEXT, EMAIL TEXT)";
         db.execSQL(createTable);
     }
 
@@ -73,15 +74,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @return Boolean
      */
 
-    public boolean addData(String item, String item2) {
+    public boolean addData(String item, String item2, String item3) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, item);
         contentValues.put(COL3, item2);
+        contentValues.put(COL4, item3);
 
         // This log prints to the console so you can check the right values are being passed
         // Example of this is the string items being added to the db table
-        Log.d(TAG, "addData: Adding " + item + item2 + " to " + TABLE_NAME);
+        Log.d(TAG, "addData: Adding " + item + item2 + item3 + " to " + TABLE_NAME);
 
        long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -103,6 +105,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery(query, null);
         return data;
     }
+
+  /*  public Cursor getData2(int itemID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME +
+                " WHERE " + COL1 + " = '" + itemID + "'";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }*/
 
 
     /**

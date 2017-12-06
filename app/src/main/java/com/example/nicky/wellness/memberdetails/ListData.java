@@ -55,7 +55,8 @@ public class ListData extends AppCompatActivity {
         final Cursor data = mDatabaseHelper.getData();                       // DM class function getData is called and assigns to a cursor
         final ArrayList<String> listData = new ArrayList<>();                // New ArrayList is created
         while(data.moveToNext()){                                            // Get the value from the table in column 1
-            //Log.d(TAG,data.getString(2));                                    // Used to ensure mobile number is there in console.
+
+            //Log.d(TAG,data.getString(2) + data.getString(3));                // Used to ensure mobile number is there in console.
             listData.add(data.getString(1)); //+ "\n" + data.getString(2));  // Add it to the ArrayList
         }
 
@@ -68,18 +69,23 @@ public class ListData extends AppCompatActivity {
                 String name = adapterView.getItemAtPosition(i).toString();
 
                 Cursor data = mDatabaseHelper.getItemID(name);                                               // Get the id associated with that name
+                //Cursor data2 = mDatabaseHelper.getData();
+                //String mobile = data.getString(2).toString();
+                //String email = data.getString(3).toString();
                 int itemID = -1;
                 while(data.moveToNext()){
                     itemID = data.getInt(0);
                 }
                 if(itemID > -1){
-                   // Log.d(TAG, "onItemClick: The ID is: " + itemID);
+                   // editDataIntent(itemID);
+                    Log.d(TAG, "onItemClick: The ID is: " + itemID);
                     //String mobile = data.getString(2);
-                    Intent editScreenIntent = new Intent(ListData.this, EditData.class);
+                   Intent editScreenIntent = new Intent(ListData.this, EditData.class);
                     editScreenIntent.putExtra("id",itemID);
                     editScreenIntent.putExtra("name",name);
-                    //editScreenIntent.putExtra("mobile",mobile);
-                    startActivity(editScreenIntent);
+                   // editScreenIntent.putExtra("mobile",mobile);
+                   // editScreenIntent.putExtra("email",email);
+                   startActivity(editScreenIntent);
                     //finish();
                 }
                 else{
@@ -88,6 +94,20 @@ public class ListData extends AppCompatActivity {
             }
         });
     }
+
+   /* private void editDataIntent(int itemID){
+        final Cursor dataTest = mDatabaseHelper.getData2(itemID);
+        String name = dataTest.getString(1).toString();
+        String mobile = dataTest.getString(2).toString();
+        String email = dataTest.getString(3).toString();
+
+        Intent editScreenIntent = new Intent(ListData.this, EditData.class);
+        editScreenIntent.putExtra("id",itemID);
+        editScreenIntent.putExtra("name",name);
+        editScreenIntent.putExtra("mobile",mobile);
+        editScreenIntent.putExtra("email",email);
+        startActivity(editScreenIntent);
+    }*/
 
     /**
      * This is a toast function which receives

@@ -25,7 +25,7 @@ public class UserDetails extends AppCompatActivity {
 
     DatabaseHelper mDatabaseHelper;                                 // SQLite db object
     private Button btnAdd, btnViewData;                             // Buttons to add and view members
-    private EditText editText, editText2;                           // Text fields to data input
+    private EditText editText, editText2, editText3;                // Text fields to data input
 
 
     @Override
@@ -36,6 +36,7 @@ public class UserDetails extends AppCompatActivity {
 
         editText = (EditText) findViewById(R.id.editText);          // find text id and assign
         editText2 = (EditText) findViewById(R.id.editText2);        // find text id and assign
+        editText3 = (EditText) findViewById(R.id.editText10);        // find text id and assign
         btnAdd = (Button) findViewById(R.id.btnAdd);                // find button id and assign
         btnViewData = (Button) findViewById(R.id.btnView);          // find button id and assign
         mDatabaseHelper = new DatabaseHelper(this);                 // create new db helper object
@@ -53,10 +54,12 @@ public class UserDetails extends AppCompatActivity {
             public void onClick(View v) {
                 String newEntry = editText.getText().toString();
                 String newEntry2 = editText2.getText().toString();
+                String newEntry3 = editText3.getText().toString();
                 if (editText.length() != 0) {
-                    AddData(newEntry, newEntry2);
+                    AddData(newEntry, newEntry2, newEntry3);
                     editText.setText("");
                     editText2.setText("");
+                    editText3.setText("");
                 } else {
                     toastMessage("Please enter the name and contact details of the new team member");
                 }
@@ -89,8 +92,8 @@ public class UserDetails extends AppCompatActivity {
      * @param newEntry
      * @param newEntry2
      */
-    public void AddData(String newEntry, String newEntry2) {
-        boolean insertData = mDatabaseHelper.addData(newEntry, newEntry2);
+    public void AddData(String newEntry, String newEntry2, String newEntry3) {
+        boolean insertData = mDatabaseHelper.addData(newEntry, newEntry2, newEntry3);
 
         if (insertData) {
             toastMessage("New member details added successfully.");

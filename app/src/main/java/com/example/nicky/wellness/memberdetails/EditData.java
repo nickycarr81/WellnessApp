@@ -23,11 +23,12 @@ public class EditData extends AppCompatActivity {
     private static final String TAG = "EditDataActivity";                           // Tag name for the class
 
     private Button btnSave,btnDelete;                                               // Buttons to amend and delete members
-    private EditText editable_item, editable_item2;                                 // Text fields to display and update data
+    private EditText editable_item, editable_item2,editable_item3;                                 // Text fields to display and update data
     DatabaseHelper mDatabaseHelper;                                                 // DB helper class
 
     private String selectedName;                                                    // String name
     private String selectedMobile;                                                  // String mobile
+    private String selectedEmail;
     private int selectedID;                                                         // Int ID
 
     @Override
@@ -39,6 +40,7 @@ public class EditData extends AppCompatActivity {
         btnDelete = (Button) findViewById(R.id.btnDelete);                          // find button id and assign
         editable_item = (EditText) findViewById(R.id.editable_item);                // find text id and assign
         editable_item2 = (EditText) findViewById(R.id.editable_item2);              // find text id and assign
+        editable_item3 = (EditText) findViewById(R.id.editText10);
         mDatabaseHelper = new DatabaseHelper(this);
 
 
@@ -46,8 +48,10 @@ public class EditData extends AppCompatActivity {
         selectedID = receivedIntent.getIntExtra("id",-1);                           // Get the itemID passed as an extra
         selectedName = receivedIntent.getStringExtra("name");                       // Get the name passed as an extra
         selectedMobile = receivedIntent.getStringExtra("mobile");
+        selectedEmail = receivedIntent.getStringExtra("email");
         editable_item.setText(selectedName);                                        // Set the text to show the current selected name
         editable_item2.setText(selectedMobile);                                     // Set the text to show the current selected names mobile
+        editable_item3.setText(selectedEmail);
 
 
         /**
