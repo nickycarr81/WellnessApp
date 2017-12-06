@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.nicky.wellness.assessment.Assessment">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Mood"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="Add" />
+
+    <EditText
+        android:id="@+id/fatigue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_alignStart="@+id/SleepQuality"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="1=Tired, 5=V.Fresh" />
+
+    <EditText
+        android:id="@+id/SleepQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="1=Insomnia, 5=Restful"
+        android:layout_below="@+id/fatigue"
+        android:layout_alignStart="@+id/MuscleSoreness"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/MuscleSoreness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="1=Sore, 5=Great"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignStart="@+id/StressLevels" />
+
+    <EditText
+        android:id="@+id/StressLevels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="1=Stressed, 5=Relaxed"
+        android:layout_below="@+id/MuscleSoreness"
+        android:layout_alignStart="@+id/Mood" />
+
+    <EditText
+        android:id="@+id/Mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="1=Irritable, 5=Happy"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/StressLevels"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="10dp"
+        android:text="Fatigue"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sleep_Quality"
+        android:layout_alignBaseline="@+id/SleepQuality"
+        android:layout_alignBottom="@+id/SleepQuality"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muscle_Soreness"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stress_Levels"
+        android:layout_above="@+id/Mood"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood"
+        android:layout_alignBaseline="@+id/Mood"
+        android:layout_alignBottom="@+id/Mood"
+        android:layout_alignStart="@+id/textView2" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/fatigue"
+        android:text="Name"
+        android:layout_alignStart="@+id/fatigue"
+        android:layout_marginTop="40dp"/>
+
+
+</RelativeLayout>
