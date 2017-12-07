@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nicky.wellness.R;
@@ -17,6 +18,7 @@ public class Assessment extends AppCompatActivity {
     private EditText EditTextMuscleSoreness;
     private EditText EditTextStressLevels;
     private EditText EditTextMood;
+    private TextView displayAssessmentResult;
     private Button AddButton;
 
 
@@ -30,6 +32,7 @@ public class Assessment extends AppCompatActivity {
         EditTextMuscleSoreness = (EditText) findViewById(R.id.MuscleSoreness);
         EditTextStressLevels = (EditText) findViewById(R.id.StressLevels);
         EditTextMood = (EditText) findViewById(R.id.Mood);
+        displayAssessmentResult = (TextView) findViewById(R.id.textView6);
         AddButton = (Button) findViewById(R.id.btnAdd);
 
 
@@ -49,12 +52,27 @@ public class Assessment extends AppCompatActivity {
                 int e = Integer.parseInt(value5);
                 int sum = a + b + c + d + e;
 
-                if (sum <=10) Toast.makeText(Assessment.this,
-                        "Rest required!",
+             /*   if (sum <=10){ Toast.makeText(Assessment.this,
+                        "Assessment Calculated",
                         Toast.LENGTH_LONG).show();
-                else Toast.makeText(Assessment.this,
-                        "Train as normal!",
-                        Toast.LENGTH_LONG).show();
+                displayAssessmentResult.setText("Based on the assessment, the player should rest");}
+                else} if(){ Toast.makeText(Assessment.this,
+                        "Assessment Calculated",
+                        Toast.LENGTH_LONG).show();}*/
+
+            if(sum <=10) {Toast.makeText(Assessment.this,
+                    "Assessment Calculated",
+                    Toast.LENGTH_LONG).show();
+                displayAssessmentResult.setText("Based on the assessment, the player should rest");}
+            else {Toast.makeText(Assessment.this,
+                    "Assessment Calculated",
+                    Toast.LENGTH_LONG).show();
+                displayAssessmentResult.setText("Based on the assessment, the player is available to train");}
+
+
+
+
+
 
 
                 //Toast.makeText(getApplicationContext(), String.valueOf(sum), Toast.LENGTH_LONG).show();
