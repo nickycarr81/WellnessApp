@@ -25,7 +25,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 
+/**
+ * Created by Nicky November 2017
+ * This class checks the permissions of the user/device
+ * for maps to be called and the location of the device.
+ * If successful the map will display the users location.
+ * The class implements onMapReady to display a google map.
+ */
+
+
 public class LocationMap extends AppCompatActivity implements OnMapReadyCallback {
+
+    /**
+     * This function display the google map and
+     * if permissions are granted will call the
+     * getDeviceLocation().
+     * @param googleMap
+     */
 
     @Override
     public void onMapReady(GoogleMap googleMap){
@@ -48,6 +64,8 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+
+    // This is all the constants and variables required for the class
     private static final String TAG = "Location";
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -57,6 +75,12 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
+    /**
+     * This function calls the getLocationPermission()
+     * when the activity is created.
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +88,13 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
 
         getLocationPermission();
     }
+
+    /**
+     * This function finds the devices location.
+     * It will find the devices latitude and longitude
+     * and pass to moveCamera to display the location
+     * on the map.
+     */
 
     private void getDeviceLocation(){
         Log.d(TAG, "getDeviceLocation: getting the device's current location");
@@ -100,12 +131,22 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
     }
 
 
+    /**
+     * This function moves the camera based
+     * on the parameters passed in.
+     * @param latLng
+     * @param zoom
+     */
     private void moveCamera(LatLng latLng, float zoom){
         Log.d(TAG, "moveCamera: moving the camera to: Lat: " + latLng.latitude + ", lng: " + latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
 
 
+    /**
+     * This function displays the map by
+     * finding the fragment id.
+     */
     private void initMap() {
         Log.d(TAG, "initMap: initialising map");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -114,6 +155,15 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
     }
 
 
+    /**
+     * This function checks permissions which
+     * are held in the manifest
+     * FINE
+     * COARSE
+     * INTERNET
+     * to ensure the user/device can access maps.
+     *
+     */
     private void getLocationPermission(){
         Log.d(TAG, "getLocationPermission: getting location permissions");
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
@@ -139,6 +189,14 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
+
+    /**
+     * This function deals with the permission result
+     * and initialises the map by calling initMap().
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
         Log.d(TAG, "onRequestPermissionsResult: called");

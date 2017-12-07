@@ -21,13 +21,21 @@ import com.google.android.gms.common.GoogleApiAvailability;
  * Created by Nicky Carr on 10/11/2017.
  * This is the main class for the app homepage.
  * This allows navigation to different activities
- * using image buttons and intents.
+ * using image buttons and intents. It will also check
+ * google play version to ensure maps can run on the device.
  */
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOGUE_REQUEST = 9001;
+
+
+    /**
+     * onCreate checks calls the isServiceOK()
+     * and acts accordingly
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * This function initialises google maps
+     * and onclick of the image button calls
+     * an intent to move to the maps page.
+     */
     private void init(){
         ImageButton btnMap = (ImageButton) findViewById(R.id.imageButton3);
         btnMap.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Function to check device has the correct
-     * google play version to view google maps
+     * This function checks the device has the correct
+     * google play version to view google maps. If not
+     * a dialogue will display to advise the user to
+     * update or the maps just wont work.
      */
 
     public boolean isServicesOK(){
